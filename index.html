@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealTrack | Smart Health Tracker</title>
+  <meta
+    name="description"
+    content="HealTrack adalah landing page tracker kesehatan untuk menghitung BMI, memantau statistik harian, dan menampilkan hasil analisis kesehatan."
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a class="brand" href="#home" aria-label="HealTrack Home">
+        <span class="brand__mark">H</span>
+        <span class="brand__text">
+          <strong>HealTrack</strong>
+          <small>Smart Health Tracker</small>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#tracker">Tracker</a>
+        <a href="#result">Result</a>
+        <a href="assets/articles/artikel_kesehatan.pdf" target="_blank" rel="noopener">
+          Artikel
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">Health dashboard · clean · easy to read</p>
+          <h1>Monitor gaya hidup sehatmu dengan tampilan yang rapi dan nyaman di mata.</h1>
+          <p class="hero__lead">
+            HealTrack membantu menghitung BMI, menganalisis kesehatan, menampilkan status hasil,
+            dan memantau data harian secara sederhana namun tetap informatif.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#tracker">Mulai Analisa</a>
+            <a class="btn btn--ghost" href="assets/articles/artikel_kesehatan.pdf" target="_blank" rel="noopener">
+              Buka Artikel
+            </a>
+          </div>
+
+          <div class="hero__stats">
+            <article class="mini-card">
+              <span class="mini-card__label">BMI</span>
+              <strong>Auto Hitung</strong>
+            </article>
+            <article class="mini-card">
+              <span class="mini-card__label">Status</span>
+              <strong>Sehat / Perlu Perbaikan</strong>
+            </article>
+            <article class="mini-card">
+              <span class="mini-card__label">Artikel</span>
+              <strong>1 PDF Khusus</strong>
+            </article>
+          </div>
+        </div>
+
+        <aside class="hero__panel" aria-label="Ringkasan dashboard">
+          <div class="panel-card panel-card--accent">
+            <p class="panel-card__label">Health Summary</p>
+            <h2>Analisis cepat untuk data harianmu</h2>
+            <p>
+              Masukkan berat, tinggi, air minum, tidur, langkah harian, dan mood.
+              Hasil akan tampil otomatis setelah tombol analisa ditekan.
+            </p>
+          </div>
+
+          <div class="panel-grid">
+            <div class="panel-stat">
+              <span>Water</span>
+              <strong id="previewWater">0 ml</strong>
+            </div>
+            <div class="panel-stat">
+              <span>Sleep</span>
+              <strong id="previewSleep">0 Jam</strong>
+            </div>
+            <div class="panel-stat">
+              <span>Steps</span>
+              <strong id="previewSteps">0</strong>
+            </div>
+            <div class="panel-stat">
+              <span>Mood</span>
+              <strong id="previewMood">-</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">About HealTrack</p>
+          <h2>Fungsi utama yang langsung kelihatan dan tidak bertele-tele.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>BMI Calculator</h3>
+            <p>Hitung Body Mass Index berdasarkan berat dan tinggi badan.</p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Daily Tracking</h3>
+            <p>Masukkan data air minum, tidur, langkah, dan mood harian.</p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Dynamic Result</h3>
+            <p>Hasil analisis berubah mengikuti data yang kamu masukkan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tracker" class="section section--soft">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Health Calculator</p>
+          <h2>Masukkan data lalu klik analisa kesehatan.</h2>
+        </div>
+
+        <div class="tracker-layout">
+          <form class="tracker-card" id="healthForm">
+            <div class="form-grid">
+              <label class="field">
+                <span>Weight (kg)</span>
+                <input type="number" id="weight" min="1" step="0.1" placeholder="Contoh: 70" required />
+              </label>
+
+              <label class="field">
+                <span>Height (cm)</span>
+                <input type="number" id="height" min="1" step="0.1" placeholder="Contoh: 175" required />
+              </label>
+
+              <label class="field">
+                <span>Water Intake (ml)</span>
+                <input type="number" id="water" min="0" step="1" placeholder="Contoh: 2000" required />
+              </label>
+
+              <label class="field">
+                <span>Sleep Hours</span>
+                <input type="number" id="sleep" min="0" step="0.1" placeholder="Contoh: 7.5" required />
+              </label>
+
+              <label class="field">
+                <span>Daily Steps</span>
+                <input type="number" id="steps" min="0" step="1" placeholder="Contoh: 8000" required />
+              </label>
+
+              <label class="field">
+                <span>Mood</span>
+                <select id="mood" required>
+                  <option value="" selected disabled>Pilih mood</option>
+                  <option value="Happy">Happy</option>
+                  <option value="Normal">Normal</option>
+                  <option value="Tired">Tired</option>
+                  <option value="Stress">Stress</option>
+                </select>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full">
+              Analisa Kesehatan
+            </button>
+          </form>
+
+          <aside id="result" class="result-card" aria-live="polite">
+            <div class="result-card__head">
+              <p class="eyebrow">Health Analysis Result</p>
+              <h2>Hasil Analisis</h2>
+            </div>
+
+            <div class="result-metrics">
+              <div class="metric">
+                <span>BMI Result</span>
+                <strong id="bmiValue">0.0</strong>
+                <small id="bmiCategory">Menunggu perhitungan...</small>
+              </div>
+
+              <div class="metric">
+                <span>Health Score</span>
+                <strong id="healthScore">0%</strong>
+                <small id="healthLevel">Menunggu analisis...</small>
+              </div>
+            </div>
+
+            <div class="status-box" id="statusBox">
+              <h3 id="statusTitle">Belum ada hasil</h3>
+              <p id="statusSummary">
+                Isi data di sebelah kiri lalu tekan tombol analisa kesehatan.
+              </p>
+              <ul id="statusPoints" class="status-list">
+                <li>Masukkan semua data dengan benar.</li>
+                <li>Hasil akan menyesuaikan kondisi tubuhmu.</li>
+                <li>Artikel kesehatan tersedia di menu atas.</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Daily Statistics</p>
+          <h2>Statistik harian yang ringkas dan mudah dibaca.</h2>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span>Water</span>
+            <strong id="statWater">0 ml</strong>
+          </article>
+
+          <article class="stat-card">
+            <span>Sleep</span>
+            <strong id="statSleep">0 Jam</strong>
+          </article>
+
+          <article class="stat-card">
+            <span>Steps</span>
+            <strong id="statSteps">0</strong>
+          </article>
+
+          <article class="stat-card">
+            <span>Mood</span>
+            <strong id="statMood">-</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Health Progress</p>
+          <h2>Visualisasi sederhana untuk data harian.</h2>
+        </div>
+
+        <div class="chart-card">
+          <canvas id="healthCanvas" width="1100" height="360" aria-label="Chart kesehatan" role="img"></canvas>
+          <div class="chart-legend">
+            <span><i class="dot dot--water"></i>Water</span>
+            <span><i class="dot dot--sleep"></i>Sleep</span>
+            <span><i class="dot dot--steps"></i>Steps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container article-banner">
+        <div>
+          <p class="eyebrow">Artikel</p>
+          <h2>Hanya satu artikel PDF, langsung dibuka saat menu diklik.</h2>
+          <p>
+            Nama file yang dipakai: <strong>artikel_kesehatan.pdf</strong>.
+          </p>
+        </div>
+
+        <a class="btn btn--primary" href="assets/articles/artikel_kesehatan.pdf" target="_blank" rel="noopener">
+          Buka Artikel Kesehatan
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>HealTrack © 2026</p>
+      <a href="#home">Kembali ke atas</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
